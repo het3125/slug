@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import OrderButton from "./OrderButton";
 
 const menu = [
   {
@@ -21,25 +22,25 @@ const menu = [
   }
 ];
 
-// ✅ SEO
+// ✅ SEO (SERVER ONLY)
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = menu.find(m => m.slug === slug);
 
   if (!item) {
     return {
-      title: "Menu Not Found",
+      title: "Menu Not Found | Tiffin Service",
       description: "This menu item does not exist"
     };
   }
 
   return {
-    title: item.name + " | Tiffin Service",
+    title: `${item.name} | Best Tiffin Service`,
     description: item.description
   };
 }
 
-// ✅ PAGE
+// ✅ PAGE (SERVER)
 export default async function Page({ params }) {
   const { slug } = await params;
   const item = menu.find(m => m.slug === slug);
@@ -49,14 +50,14 @@ export default async function Page({ params }) {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8">
-        <h1 className="text-3xl font-bold mb-4">{item.name}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-gray-900">{item.name}</h1>
         <p className="text-gray-600 mb-6">{item.description}</p>
 
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-green-600">₹{item.price}</span>
-          <button className="bg-green-600 text-black px-6 py-3 rounded-lg hover:bg-green-700 transition">
-            Order Now
-          </button>
+
+          {/* 👇 CLIENT BUTTON */}
+          <OrderButton item={item} />
         </div>
       </div>
     </div>
