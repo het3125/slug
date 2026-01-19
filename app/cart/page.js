@@ -12,30 +12,30 @@ export default function CartPage() {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900">🛒 Your Order</h1>
+    <div className="min-h-screen bg-background p-10">
+      <h1 className="text-3xl font-bold mb-6 text-foreground">🛒 Your Order</h1>
 
       {cart.length === 0 && (
-        <p className="text-gray-700">No items in cart.</p>
+        <p className="text-foreground">No items in cart.</p>
       )}
 
       {cart.map((item, i) => (
         <div
           key={i}
-          className="bg-white p-4 mb-4 rounded shadow flex justify-between items-center"
+          className="bg-card border border-border p-4 mb-4 rounded shadow flex justify-between items-center"
         >
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-foreground">
               {item.name}
             </h2>
-            <p className="text-gray-700">₹{item.price}</p>
+            <p className="text-foreground">₹{item.price}</p>
           </div>
         </div>
       ))}
 
       {cart.length > 0 && (
-        <div className="mt-6 bg-white p-6 rounded shadow max-w-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-6 bg-card border border-border p-6 rounded shadow max-w-md">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Total: ₹{total}
           </h2>
 
@@ -45,7 +45,7 @@ export default function CartPage() {
               localStorage.removeItem("cart");
               setCart([]);
             }}
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
+            className="bg-primary text-foreground px-6 py-3 rounded-lg hover:bg-green-700 transition"
           >
             Place Order
           </button>

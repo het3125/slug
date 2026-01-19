@@ -48,13 +48,13 @@ export default async function Page({ params }) {
   if (!item) notFound();
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8">
-        <h1 className="text-3xl font-bold mb-4 text-gray-900">{item.name}</h1>
-        <p className="text-gray-600 mb-6">{item.description}</p>
+    <div className="min-h-screen bg-background flex items-center justify-center p-6">
+      <div className="bg-card border border-border rounded-2xl shadow-xl max-w-lg w-full p-8">
+        <h1 className="text-3xl font-bold mb-4 text-foreground">{item.name}</h1>
+        <p className="text-foreground mb-6">{item.description}</p>
 
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-green-600">₹{item.price}</span>
+          <span className="text-2xl font-bold text-foreground">₹{item.price}</span>
 
           {/* 👇 CLIENT BUTTON */}
           <OrderButton item={item} />

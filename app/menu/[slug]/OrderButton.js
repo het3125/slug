@@ -10,7 +10,7 @@ export default function OrderButton({ item }) {
         alert("Item added to cart!");
         window.location.href = "/cart";
       }}
-      className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
+      className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
     >
       Order Now
     </button>

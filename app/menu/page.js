@@ -8,24 +8,24 @@ const menu = [
 
 export default function MenuPage() {
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-3xl font-bold text-center mb-10 text-gray-900">
+    <div className="min-h-screen bg-background p-10">
+      <h1 className="bg-card border border-border text-3xl font-bold text-center mb-10text-foreground">
         🍽 Our Tiffin Menu
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className=" grid md:grid-cols-3 gap-8 max-w-5xl mx-auto ">
         {menu.map((item) => (
           <Link
             key={item.slug}
             href={`/menu/${item.slug}`}
-            className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition block"
+            className="bg-card border border-border p-6 rounded-xl shadow hover:shadow-xl transition block "
           >
-            <h2 className="text-xl font-semibold mb-2 text-gray-900">
+            <h2 className="text-xl font-semibold mb-2 text-foreground">
               {item.name}
             </h2>
-            <p className="text-gray-600 mb-4">Delicious & Healthy Meal</p>
-            <p className="text-green-600 font-bold text-lg">₹{item.price}</p>
-            <div className="mt-4 text-blue-600 font-medium">View Details →</div>
+            <p className="text-foreground mb-4">Delicious & Healthy Meal</p>
+            <p className="text-foreground font-bold text-lg">₹{item.price}</p>
+            <div className="mt-4 bg-primary text-white font-medium">View Details →</div>
           </Link>
         ))}
       </div>

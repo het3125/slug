@@ -1,24 +1,59 @@
 @import "tailwindcss";
 
+/* =========================
+   🌈 THEME VARIABLES
+========================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Main theme colors */
+  --background: #f9fafb;
+  --foreground: #111827;
+
+  --primary: #000000;     /* Green (main buttons) */
+  --secondary: #2563eb;   /* Blue */
+  --accent: #f59e0b;      /* Yellow / highlight */
+
+  --card: #ffffff;
+  --border: #e5e7eb;
 }
 
+/* =========================
+   🌙 DARK MODE THEME
+========================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #c3a9a9;
+
+    --primary: #8b453a;
+    --secondary: #3b82f6;
+    --accent: #fbbf24;
+
+    --card: #000000db;
+    --border: #4f8ee6;
+  }
+}
+
+/* =========================
+   🧠 TAILWIND THEME MAPPING
+========================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-card: var(--card);
+  --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* =========================
+   🌍 GLOBAL BODY STYLE
+========================= */
 body {
   background: var(--background);
   color: var(--foreground);
